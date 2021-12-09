@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {  Input, Button, Segment, Menu, Container } from 'semantic-ui-react';
+import Card from './Card';
 
 const App=()=> {
   const [searchValue, setSearchValue] = useState('');
@@ -31,7 +32,8 @@ const App=()=> {
       <Segment >
         <Input type="search" placeholder="Search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
         <Button type="submit" onClick={handleSubmit}>Search</Button>
-      </Segment>  
+      </Segment>
+      <Card data={data}/>
     </div>
   );
 }
