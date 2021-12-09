@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {  Input, Button, Segment, Menu, Container, Header } from 'semantic-ui-react';
+import {  Input, Button, Segment, Header } from 'semantic-ui-react';
 import Card from './Card';
 
 const App=()=> {
@@ -29,7 +29,7 @@ const App=()=> {
       </Header>
       <Segment >
         <Input icon='search' type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)} color="blue"/>
-        <Button type="submit" onClick={handleSubmit}>Search</Button>
+        <Button primary type="submit" onClick={handleSubmit}>Search</Button>
       </Segment>
       <Card data={data}/>
     </div>

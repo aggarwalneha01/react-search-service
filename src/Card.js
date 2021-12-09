@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Grid, Card as C } from 'semantic-ui-react';
+import {  Grid, Segment} from 'semantic-ui-react';
 
 const Card=(data)=> {
     data.data.sort((a, b) => (a.weight > b.weight) ? 1 : -1);
@@ -10,9 +10,7 @@ const Card=(data)=> {
                 
                 return (
                     <Grid.Column key={i}>
-                        <C>
-                            <C.Content>
-                                
+                        <Segment color="blue">
                                     <strong>Title</strong>
                                     <p>{a.title}</p>
                                     <strong>Description</strong>
@@ -21,16 +19,11 @@ const Card=(data)=> {
                                     <p>{a.tags.map((b, j)=><span key={j}>{b}</span>)}</p>
                                     <strong>Weight</strong>
                                     <p>{a.weight}</p>
-                                    
-                               
-                            </C.Content>
-                        </C>
+                        </Segment>
                     
                     </Grid.Column>
                     )
-            }
-            )
-            }
+            })}
             </Grid>
         </div>
     )
