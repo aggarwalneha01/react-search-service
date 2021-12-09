@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {  Input, Button, Segment, Menu, Container } from 'semantic-ui-react';
+import {  Input, Button, Segment, Menu, Container, Header } from 'semantic-ui-react';
 import Card from './Card';
 
 const App=()=> {
@@ -9,7 +9,6 @@ const App=()=> {
 
    async function handleSubmit(e){
      e.preventDefault();
-     console.log("handlesubmit", searchValue);
      const res = await fetch("http://localhost:8080/api/search", {
       body: JSON.stringify({
         searchTerm: searchValue
@@ -21,16 +20,15 @@ const App=()=> {
     });
     const response = await res.json();
     setData(response);
-    (console.log("data", data));
 }
   return (
-    <div className="App">
-      <Menu inverted>
-        <Container ><Menu.Item name='Simple Search Service' />
-        </Container>
-      </Menu>
+    <div className="App" >
+      <Header size="large" textAlign='center' color="blue">
+        <Header.Content content='Simple Search Service' >
+        </Header.Content>
+      </Header>
       <Segment >
-        <Input type="search" placeholder="Search" value={searchValue} onChange={(e) => setSearchValue(e.target.value)}/>
+        <Input icon='search' type="search" placeholder="Search..." value={searchValue} onChange={(e) => setSearchValue(e.target.value)} color="blue"/>
         <Button type="submit" onClick={handleSubmit}>Search</Button>
       </Segment>
       <Card data={data}/>
